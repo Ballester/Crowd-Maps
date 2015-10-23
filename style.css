@@ -1,0 +1,53 @@
+#idCanvas {
+    width:600px;
+    height:300px;
+    border: 10px solid transparent;
+    background: no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%
+    /*background-color: rgb(255,255,255);*/
+}
+
+#idButtons {
+    margin-top: 3%;
+}
+
+.rectangle {
+    border: 1px solid #FF0000;
+    position: absolute;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+.aux {
+    background-color: #009900;
+}
+
+
+.thumbnail {
+    height: 10%;
+    overflow: auto;
+}
+
+.img3 {
+    margin-top: -10px;
+    height: 40px;
+}
+
+body {
+    width: auto;
+    height: auto;
+    /*border: 1px solid black;*/
+    margin-left: auto;
+    margin-right: auto;
+    /*background-color: #282828;*/
+}
+button {
+    float: right;
+    margin-right: 10px;
+}
+
