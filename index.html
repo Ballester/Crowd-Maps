@@ -18,7 +18,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand nav" href="#">
-              <img class=img3 src="datalab.png" alt="logo do datalab">
+              <img class=img3 src="logos/datalab.png" alt="logo do datalab">
           </a>
 
         </div>
@@ -33,9 +33,18 @@
       <div class="col-md-2"></div>
       <div class="col-md-8">
         <div class="btn-group btn-group-justified">
-          <a href="#" id="undo" class="btn btn-primary">Undo</a>
-          <a href="#" id="submit" class="btn btn-primary">Submit</a>
-          <a href="#" id="skip" class="btn btn-primary">Skip</a>
+          <a href="#" id="undo" class="btn btn-primary">
+            <span class="glyphicon glyphicon-repeat"></span> Desfazer
+          </a>
+          <a href="#" id="submit" class="btn btn-primary">
+            <span class="glyphicon glyphicon-ok"></span> Enviar
+          </a>
+          <a href="#" id="submit-empty" class="btn btn-primary">
+            <span class="glyphicon glyphicon-remove"></span> Sem grafite
+          </a>
+          <a href="#" id="skip" class="btn btn-primary">
+            <span class="glyphicon glyphicon-chevron-right"></span> Pular
+          </a>
         </div>
       </div>
       <div class="col-md-2"></div>
@@ -46,7 +55,9 @@
       <div class="col-md-8">
         <div class="btn-group btn-group-justified">
           <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">Nome: </span>
+            <span class="input-group-addon" id="basic-addon1">
+              <span class="glyphicon glyphicon-user"></span> Nome
+            </span>
             <input id="name" type="text" class="form-control" placeholder="Digite seu nome" aria-describedby="basic-addon1">
           </div>
         </div>

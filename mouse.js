@@ -25,10 +25,11 @@ function changeImage(canvas) {
         {
            canvas.style.backgroundImage = 'url(' + String(result) + ')';
            document.getElementById("im_name").value = String(result);
+           console.log("Imagem trocada com sucesso.")
         },
         error : function ()
         {
-           alert("erro_last");
+           console.log("Erro trocando a imagem.");
         },
     });
 
@@ -126,18 +127,16 @@ function initDraw(canvas) {
 
 
 var canvas = document.getElementById('idCanvas');
-canvas.style.backgroundImage = 'url(15_de_Novembro_600_90.jpg)'
-//changeImage(canvas);
+//canvas.style.backgroundImage = 'url(15_de_Novembro_600_90.jpg)'
+changeImage(canvas);
 console.log(canvas);
-
-console.log('Random image found in folder!');
 
 var el_list = [];
 initDraw(document.getElementById('idCanvas'), el_list);
 
 document.getElementById("submit").onclick = function(){
     console.log(el_list);
-    console.log(canvas);
+    //console.log(canvas);
 
     //Creating the rectangles
     var data = "";
@@ -161,23 +160,40 @@ document.getElementById("submit").onclick = function(){
         el_list[0].parentNode.removeChild(el_list[el_list.length-1])
         el_list.pop()
     }
-    console.log("Removed all rectangles");
+    console.log("Todos retangulos removidos.");
 
-    im_name = changeImage(canvas);
+    changeImage(canvas);
+}
+document.getElementById("submit-empty").onclick = function() {
+  name = document.getElementById("name").value;
+  im_name = document.getElementById("im_name").value;
+
+  //Send with no data
+  console.log("Enviar sem retangulos.");
+  sendToDB(name, im_name, "", 90);
+
+  //Remove all elements
+  while (el_list.length > 0) {
+      el_list[0].parentNode.removeChild(el_list[el_list.length-1])
+      el_list.pop()
+  }
+  console.log("Todos retangulos removidos.");
+
+  changeImage(canvas);
 
 }
 document.getElementById("skip").onclick = function() {
-    canvas = document.getElementById('IdCanvas');
+    //canvas = document.getElementById('IdCanvas');
     changeImage(canvas);
 }
 document.getElementById("undo").onclick = function(){
     if (el_list.length > 0) {
-        console.log("Last rectangle deleted")
+        console.log("Ultimo retangulo removido.")
         el_list[el_list.length-1].parentNode.removeChild(el_list[el_list.length-1])
         el_list.pop()
     }
     else {
-        console.log("No rectangles left")
+        console.log("Sem mais retangulos.")
 
     }
 }
