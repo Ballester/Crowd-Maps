@@ -1,78 +1,33 @@
 <!doctype html>
 <html>
+
 <head>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
+
 <body>
-
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand nav" href="#">
-              <img class=img3 src="logos/datalab.png" alt="logo do datalab">
-          </a>
-
-        </div>
-
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-
-    <div id="idCanvas"></div>
-
-    <div id="idButtons" class="row">
+  <div class="jumbotron">
+    <div class="row">
       <div class="col-md-2"></div>
       <div class="col-md-8">
-        <div class="btn-group btn-group-justified">
-          <a href="#" id="undo" class="btn btn-primary">
-            <span class="glyphicon glyphicon-repeat"></span> Desfazer
-          </a>
-          <a href="#" id="submit" class="btn btn-primary">
-            <span class="glyphicon glyphicon-ok"></span> Enviar
-          </a>
-          <a href="#" id="submit-empty" class="btn btn-primary">
-            <span class="glyphicon glyphicon-remove"></span> Sem grafite
-          </a>
-          <a href="#" id="skip" class="btn btn-primary">
-            <span class="glyphicon glyphicon-chevron-right"></span> Pular
-          </a>
+        <div class="container">
+          <h1>Oi!</h1>
+          <p>Obrigado por participar do desenvolvimento do banco de dados.</p>
+          <ul>
+            <li> Digite seu nome no campo <span class="glyphicon glyphicon-user"></span> Nome.</li>
+            <li> Se voce encontrar um grafite na imagem, marque-o segurando o botão do mouse e clique em <span class="glyphicon glyphicon-ok"></span> Enviar.</li>
+            <li> Caso encontre mais de um grafite na mesma imagem, marque-os com retângulos diferentes. </li>
+            <li> Se não existirem grafites na imagem, clique em <span class="glyphicon glyphicon-remove"></span> Sem grafite.</li>
+            <li> Para retângulos mal feitos, clique em <span class="glyphicon glyphicon-repeat"></span> Desfazer.</li>
+            <li> Se não souber opinar sobre a imagem, clique em <span class="glyphicon glyphicon-chevron-right"></span> Pular.</li>
+          </ul>
+          <p><a href="servico.html" class="btn btn-primary btn-lg" href="#" role="button">Iniciar marcações</a></p>
         </div>
       </div>
       <div class="col-md-2"></div>
     </div>
-
-    <div id="idButtons" class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-8">
-        <div class="btn-group btn-group-justified">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">
-              <span class="glyphicon glyphicon-user"></span> Nome
-            </span>
-            <input id="name" type="text" class="form-control" placeholder="Digite seu nome" aria-describedby="basic-addon1">
-          </div>
-        </div>
-      </div>
-      <div class="col-md-2"></div>
-    </div>
-
-
-
-
-
-    <script src="mouse.js"></script>
-
-    <text id="im_name"></text>
-
-
+  </div>
 </body>
+
 </html>

@@ -38,7 +38,7 @@ function changeImage(canvas) {
 function sendToDB(user, image, retangulos, heading) {
     var formData = {User:String(user),Image:image,Rect:String(retangulos),Heading:heading};
     console.log(formData);
-    console.log("Sending to db...");
+    console.log("Enviando ao banco de dados...");
     $.ajax({
         url : "savedata.php",
         type: "post",
@@ -52,8 +52,6 @@ function sendToDB(user, image, retangulos, heading) {
             console.log('Erro inserindo no db');
         },
     });
-    console.log("Sent.");
-
 
 }
 
@@ -97,7 +95,7 @@ function initDraw(canvas) {
             el_list.push(element);
             element = null;
             canvas.style.cursor = "default";
-            console.log("finished");
+            console.log("Fim do retangulo.");
         }
 
 
@@ -111,7 +109,7 @@ function initDraw(canvas) {
             console.log("finsihed.");
         }*/
         if (element == null) {
-            console.log("begun.");
+            console.log("Inicio do retangulo.");
             mouse.startX = mouse.x;
             mouse.startY = mouse.y;
             element = document.createElement('div');
