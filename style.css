@@ -5,12 +5,12 @@
     background: no-repeat;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 3%
+    margin-top: 1%
     /*background-color: rgb(255,255,255);*/
 }
 
 #idButtons {
-    margin-top: 3%;
+    margin-top: 1%;
 }
 
 .rectangle {
@@ -47,7 +47,10 @@ body {
     /*background-color: #282828;*/
 }
 button {
-    float: right;
-    margin-right: 10px;
 }
 
+
+
+#im_name {
+    visibility: hidden;
+}

@@ -31,7 +31,7 @@ function changeImage(canvas) {
            alert("erro_last");
         },
     });
-    
+
 }
 
 function sendToDB(user, image, retangulos, heading) {
@@ -52,8 +52,8 @@ function sendToDB(user, image, retangulos, heading) {
         },
     });
     console.log("Sent.");
-    
-    
+
+
 }
 
 function reload() {
@@ -124,9 +124,10 @@ function initDraw(canvas) {
     }
 }
 
-    
+
 var canvas = document.getElementById('idCanvas');
-changeImage(canvas);
+canvas.style.backgroundImage = 'url(15_de_Novembro_600_90.jpg)'
+//changeImage(canvas);
 console.log(canvas);
 
 console.log('Random image found in folder!');
@@ -137,7 +138,7 @@ initDraw(document.getElementById('idCanvas'), el_list);
 document.getElementById("submit").onclick = function(){
     console.log(el_list);
     console.log(canvas);
-  
+
     //Creating the rectangles
     var data = "";
     for (var i=0; i<el_list.length; i++) {
@@ -148,20 +149,20 @@ document.getElementById("submit").onclick = function(){
         data += "(" + String(left) + "px, " + String(top) + "px, " + el_list[i].style.width + ", " + el_list[i].style.height + ")";
     }
     //Creating the lat_lon
-    //data_lat_lon = "(" + String(lat_lon[0]) + ", " + String(lat_lon[1]) + ")";  
+    //data_lat_lon = "(" + String(lat_lon[0]) + ", " + String(lat_lon[1]) + ")";
     name = document.getElementById("name").value;
     im_name = document.getElementById("im_name").value;
-  
+
     sendToDB(name, im_name, data, 90);
     //download(num + '.txt', data);
-      
+
     //Remove all elements
     while (el_list.length > 0) {
         el_list[0].parentNode.removeChild(el_list[el_list.length-1])
         el_list.pop()
     }
     console.log("Removed all rectangles");
-    
+
     im_name = changeImage(canvas);
 
 }
