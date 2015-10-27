@@ -35,8 +35,8 @@ function changeImage(canvas) {
 
 }
 
-function sendToDB(user, image, retangulos, heading) {
-    var formData = {User:String(user),Image:image,Rect:String(retangulos),Heading:heading};
+function sendToDB(user, image, retangulos) {
+    var formData = {User:String(user),Image:image,Rect:String(retangulos)};
     console.log(formData);
     console.log("Enviando ao banco de dados...");
     $.ajax({
@@ -150,7 +150,7 @@ document.getElementById("submit").onclick = function(){
     name = document.getElementById("name").value;
     im_name = document.getElementById("im_name").value;
 
-    sendToDB(name, im_name, data, 90);
+    sendToDB(name, im_name, data);
     //download(num + '.txt', data);
 
     //Remove all elements
@@ -168,7 +168,7 @@ document.getElementById("submit-empty").onclick = function() {
 
   //Send with no data
   console.log("Enviar sem retangulos.");
-  sendToDB(name, im_name, "", 90);
+  sendToDB(name, im_name, "");
 
   //Remove all elements
   while (el_list.length > 0) {
@@ -181,7 +181,13 @@ document.getElementById("submit-empty").onclick = function() {
 
 }
 document.getElementById("skip").onclick = function() {
-    //canvas = document.getElementById('IdCanvas');
+    //Remove all elements
+    while (el_list.length > 0) {
+        el_list[0].parentNode.removeChild(el_list[el_list.length-1])
+        el_list.pop()
+    }
+    console.log("Todos retangulos removidos.");
+
     changeImage(canvas);
 }
 document.getElementById("undo").onclick = function(){

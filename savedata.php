@@ -9,17 +9,16 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} 
-  
+}
+
 $user = $_POST['User'];
 $image = $_POST['Image'];
 $rect = $_POST['Rect'];
-$heading = $_POST['Heading'];
 
   //$sql = "INSERT INTO retangulos (Image, Rect) VALUES ('6', 'testando')";
-  $sql = "INSERT INTO retangulos (User, ImageName, Rect, Heading) VALUES ('".$user."', '".$image."', '".$rect."', '".$heading."')";
+  $sql = "INSERT INTO retangulos (User, ImageName, Rect) VALUES ('".$user."', '".$image."', '".$rect."')";
 
-  
+
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
 } else {
@@ -28,5 +27,3 @@ if ($conn->query($sql) === TRUE) {
 
 $conn->close();
 ?>
-
-
