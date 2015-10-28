@@ -13,6 +13,10 @@
     margin-top: 1%;
 }
 
+#header {
+    margin-top: 2%;
+}
+
 .rectangle {
     border: 1px solid #FF0000;
     position: absolute;

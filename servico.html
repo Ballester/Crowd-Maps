@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 </head>
 <body>
@@ -33,6 +34,21 @@
       <div class="col-md-2"></div>
       <div class="col-md-8">
         <div class="btn-group btn-group-justified">
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">
+              <span class="glyphicon glyphicon-user"></span> Nome
+            </span>
+            <input id="name" type="text" class="form-control" placeholder="Digite seu nome" aria-describedby="basic-addon1">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+
+    <div id="idButtons" class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class="btn-group btn-group-justified">
           <a href="#" id="undo" class="btn btn-primary">
             <span class="glyphicon glyphicon-repeat"></span> Desfazer
           </a>
@@ -50,21 +66,76 @@
       <div class="col-md-2"></div>
     </div>
 
-    <div id="idButtons" class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-8">
-        <div class="btn-group btn-group-justified">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">
-              <span class="glyphicon glyphicon-user"></span> Nome
-            </span>
-            <input id="name" type="text" class="form-control" placeholder="Digite seu nome" aria-describedby="basic-addon1">
-          </div>
-        </div>
-      </div>
-      <div class="col-md-2"></div>
+    <div id="header" class="page-header">
+      <h1>Instruções</h1>
     </div>
 
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="col-md-6">
+        <ul class="media-list">
+          <li class="media">
+            <div class="media-left">
+              <a href="#">
+                <span class="glyphicon glyphicon-user"></span>
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">Nome</h4>
+              Digite seu nome nesse campo.
+            </div>
+          </li>
+          <li class="media">
+            <div class="media-left">
+              <a href="#">
+                <span class="glyphicon glyphicon-repeat"></span>
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class ="media-heading">Desfazer</h4>
+              Clique para desfazer um retângulo mal feito.
+            </div>
+          </li>
+          <li class="media">
+            <div class="media-left">
+              <a href="#">
+                <span class="glyphicon glyphicon-ok"></span>
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class ="media-heading">Enviar</h4>
+              Envia os retângulos formados para o banco.
+            </div>
+          </li>
+          <li class="media">
+            <div class="media-left">
+              <a href="#">
+                <span class="glyphicon glyphicon-remove"></span>
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class ="media-heading">Sem grafite</h4>
+              Clique se não houverem pichações na imagem.
+            </div>
+          </li>
+          <li class="media">
+            <div class="media-left">
+              <a href="#">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class ="media-heading">Pular</h4>
+              Se não souber opinar nessa imagem, clique em pular.
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <img src="logos/output.gif">
+      </div>
+    </div>
+    <div class="col-md-2"></div>
 
 
 
