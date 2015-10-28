@@ -1,43 +1,150 @@
 <!doctype html>
 <html>
-
 <head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="style_jumbo.css">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+</head>
 <body>
-  <div class="jumbotron">
-    <div class="row">
-      <div class="col-md-2">
-        <div class="col-md-4">
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand nav" href="#">
+              <img class=img3 src="logos/datalab.png" alt="logo do datalab">
+          </a>
+
         </div>
-        <div class="col-md-8">
-        </div>
-      </div>
+
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <div id="idCanvas"></div>
+
+    <div id="idButtons" class="row">
+      <div class="col-md-2"></div>
       <div class="col-md-8">
-        <div class="container">
-          <img src="logos/logo_ufpel.png" alt="logo datalab">
-          <h1>Oi!</h1>
-          <p>Obrigado por participar do desenvolvimento deste banco de dados.</p>
-          <ul>
-            <li> Digite seu nome no campo <span class="glyphicon glyphicon-user"></span> Nome.</li>
-            <li> Se voce encontrar um grafite na imagem, marque-o segurando o botão do mouse e clique em <span class="glyphicon glyphicon-ok"></span> Enviar.</li>
-            <li> Caso encontre mais de um grafite na mesma imagem, marque-os com retângulos diferentes. </li>
-            <li> Se não existirem grafites na imagem, clique em <span class="glyphicon glyphicon-remove"></span> Sem grafite.</li>
-            <li> Para retângulos mal feitos, clique em <span class="glyphicon glyphicon-repeat"></span> Desfazer.</li>
-            <li> Se não souber opinar sobre a imagem, clique em <span class="glyphicon glyphicon-chevron-right"></span> Pular.</li>
-          </ul>
-          <p><a id="botao" href="servico.html" class="btn btn-primary btn-lg" href="#" role="button">Iniciar marcações</a></p>
+        <div class="btn-group btn-group-justified">
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">
+              <span class="glyphicon glyphicon-user"></span> Nome
+            </span>
+            <input id="name" type="text" class="form-control" placeholder="Digite seu nome" aria-describedby="basic-addon1">
+          </div>
         </div>
       </div>
       <div class="col-md-2"></div>
-
     </div>
-  </div>
+
+    <div id="idButtons" class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class="btn-group btn-group-justified">
+          <a href="#" id="undo" class="btn btn-primary">
+            <span class="glyphicon glyphicon-repeat"></span> Desfazer
+          </a>
+          <a href="#" id="submit" class="btn btn-primary">
+            <span class="glyphicon glyphicon-ok"></span> Enviar
+          </a>
+          <a href="#" id="submit-empty" class="btn btn-primary">
+            <span class="glyphicon glyphicon-remove"></span> Sem grafite
+          </a>
+          <a href="#" id="skip" class="btn btn-primary">
+            <span class="glyphicon glyphicon-chevron-right"></span> Pular
+          </a>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+
+    <div id="header" class="page-header">
+      <h1>Instruções</h1>
+    </div>
+
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="col-md-6">
+        <ul class="media-list">
+          <li class="media">
+            <div class="media-left">
+              <a href="#">
+                <span class="glyphicon glyphicon-user"></span>
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">Nome</h4>
+              Digite seu nome nesse campo.
+            </div>
+          </li>
+          <li class="media">
+            <div class="media-left">
+              <a href="#">
+                <span class="glyphicon glyphicon-repeat"></span>
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class ="media-heading">Desfazer</h4>
+              Clique para desfazer um retângulo mal feito.
+            </div>
+          </li>
+          <li class="media">
+            <div class="media-left">
+              <a href="#">
+                <span class="glyphicon glyphicon-ok"></span>
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class ="media-heading">Enviar</h4>
+              Envia os retângulos formados para o banco.
+            </div>
+          </li>
+          <li class="media">
+            <div class="media-left">
+              <a href="#">
+                <span class="glyphicon glyphicon-remove"></span>
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">Sem grafite</h4>
+              Clique se não houverem pichações na imagem.
+            </div>
+          </li>
+          <li class="media">
+            <div class="media-left">
+              <a href="#">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class ="media-heading">Pular</h4>
+              Se não souber opinar nessa imagem, clique em pular.
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <h4 class="demo">Criando os retângulos</h2>
+        <img class="demo" src="logos/smaller.gif">
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+
+
+
+
+    <script src="mouse.js"></script>
+
+    <text id="im_name"></text>
 
 
 </body>
-
 </html>
