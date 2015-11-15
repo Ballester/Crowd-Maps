@@ -10,7 +10,7 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -23,7 +23,18 @@
           </a>
 
         </div>
-
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href=#idCanvas>Atividade</a>
+            </li>
+            <li>
+              <a href=#headerA>Instruções</a>
+            </li>
+            <li>
+              <a href=#headerB>Ranking</a>
+            </li>
+          </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
@@ -31,18 +42,37 @@
     <div id="idCanvas"></div>
 
     <div id="idButtons" class="row">
-      <div class="col-md-2"></div>
+      <div class="col-md-2">
+      </div>
       <div class="col-md-8">
-        <div class="btn-group btn-group-justified">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">
-              <span class="glyphicon glyphicon-user"></span> Nome
-            </span>
-            <input id="name" type="text" class="form-control" placeholder="Digite seu nome" aria-describedby="basic-addon1">
+          <div class="btn-group btn-group-justified">
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">
+                <span class="glyphicon glyphicon-user"></span> Nome
+              </span>
+              <input id="name" type="text" class="form-control" placeholder="Digite seu nome" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">
+                <span class="glyphicon glyphicon-envelope"> Email</span>
+              </span>
+              <input id="email" type="text" class="form-control" placeholder="Digite seu email" aria-describedby="basic-addon1">
+            </div>
           </div>
-        </div>
       </div>
       <div class="col-md-2"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-8">
+        <div id="error" style="display:none;" class="row">
+          <div class="alert alert-danger" role="alert">Tente digitar nome e email válidos! :)</div>
+        </div>
+      </div>
+      <div class="col-md-2">
+      </div>
     </div>
 
     <div id="idButtons" class="row">
@@ -56,7 +86,7 @@
             <span class="glyphicon glyphicon-ok"></span> Enviar
           </a>
           <a href="#" id="submit-empty" class="btn btn-primary">
-            <span class="glyphicon glyphicon-remove"></span> Sem grafite
+            <span class="glyphicon glyphicon-remove"></span> Sem pichação
           </a>
           <a href="#" id="skip" class="btn btn-primary">
             <span class="glyphicon glyphicon-chevron-right"></span> Pular
@@ -66,79 +96,138 @@
       <div class="col-md-2"></div>
     </div>
 
-    <div id="header" class="page-header">
+    <div id="headerA" class="page-header">
       <h1>Instruções</h1>
     </div>
 
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-      <div class="col-md-6">
-        <ul class="media-list">
-          <li class="media">
-            <div class="media-left">
-              <a href="#">
-                <span class="glyphicon glyphicon-user"></span>
-              </a>
-            </div>
-            <div class="media-body">
-              <h4 class="media-heading">Nome</h4>
-              Digite seu nome nesse campo.
-            </div>
-          </li>
-          <li class="media">
-            <div class="media-left">
-              <a href="#">
-                <span class="glyphicon glyphicon-repeat"></span>
-              </a>
-            </div>
-            <div class="media-body">
-              <h4 class ="media-heading">Desfazer</h4>
-              Clique para desfazer um retângulo mal feito.
-            </div>
-          </li>
-          <li class="media">
-            <div class="media-left">
-              <a href="#">
-                <span class="glyphicon glyphicon-ok"></span>
-              </a>
-            </div>
-            <div class="media-body">
-              <h4 class ="media-heading">Enviar</h4>
-              Envia os retângulos formados para o banco.
-            </div>
-          </li>
-          <li class="media">
-            <div class="media-left">
-              <a href="#">
-                <span class="glyphicon glyphicon-remove"></span>
-              </a>
-            </div>
-            <div class="media-body">
-              <h4 class="media-heading">Sem grafite</h4>
-              Clique se não houverem pichações na imagem.
-            </div>
-          </li>
-          <li class="media">
-            <div class="media-left">
-              <a href="#">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-              </a>
-            </div>
-            <div class="media-body">
-              <h4 class ="media-heading">Pular</h4>
-              Se não souber opinar nessa imagem, clique em pular.
-            </div>
-          </li>
-        </ul>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class="col-md-6">
+          <ul class="media-list">
+            <li class="media">
+              <div class="media-left">
+                <a href="#">
+                  <span class="glyphicon glyphicon-user"></span>
+                </a>
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading">Nome</h4>
+                Digite seu nome nesse campo.
+              </div>
+            </li>
+            <li class="media">
+              <div class="media-left">
+                <a href="#">
+                  <span class="glyphicon glyphicon-repeat"></span>
+                </a>
+              </div>
+              <div class="media-body">
+                <h4 class ="media-heading">Desfazer</h4>
+                Clique para desfazer um retângulo mal feito.
+              </div>
+            </li>
+            <li class="media">
+              <div class="media-left">
+                <a href="#">
+                  <span class="glyphicon glyphicon-ok"></span>
+                </a>
+              </div>
+              <div class="media-body">
+                <h4 class ="media-heading">Enviar</h4>
+                Envia os retângulos formados para o banco.
+              </div>
+            </li>
+            <li class="media">
+              <div class="media-left">
+                <a href="#">
+                  <span class="glyphicon glyphicon-remove"></span>
+                </a>
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading">Sem pichação</h4>
+                Clique se não houverem pichações na imagem.
+              </div>
+            </li>
+            <li class="media">
+              <div class="media-left">
+                <a href="#">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+              </div>
+              <div class="media-body">
+                <h4 class ="media-heading">Pular</h4>
+                Se não souber opinar nessa imagem, clique em pular.
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h4 class="demo">Criando os retângulos</h2>
+          <img class="demo" src="logos/smaller.gif">
+        </div>
       </div>
-      <div class="col-md-6">
-        <h4 class="demo">Criando os retângulos</h2>
-        <img class="demo" src="logos/smaller.gif">
+      <div class="col-md-2"></div>
+    </div>
+
+    <div id="headerB" class="page-header">
+      <h1>Ranking</h1>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-8">
+        <div class="col-md-6">
+          <ul class="list-group">
+            <li class="list-group-item active">
+              <span class="badge">100</span>
+              1. Pessoa A
+            </li>
+            <li class="list-group-item">
+              <span class="badge">15</span>
+              2. Pessoa B
+            </li>
+            <li class="list-group-item">
+              <span class="badge">13</span>
+              3. Pessoa C
+            </li>
+            <li class="list-group-item">
+              <span class="badge">1</span>
+              4. Pessoa D
+            </li>
+            <li class="list-group-item">
+              <span class="badge">1</span>
+              5. Pessoa E
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <li class="list-group-item">
+            <span class="badge">1</span>
+            6. Pessoa F
+          </li>
+          <li class="list-group-item">
+            <span class="badge">1</span>
+            7. Pessoa G
+          </li>
+          <li class="list-group-item">
+            <span class="badge">1</span>
+            8. Pessoa H
+          </li>
+          <li class="list-group-item">
+            <span class="badge">1</span>
+            9. Pessoa I
+          </li>
+          <li class="list-group-item">
+            <span class="badge">1</span>
+            10. Pessoa J
+          </li>
+        </div>
+      </div>
+      <div class="col-md-2">
       </div>
     </div>
-    <div class="col-md-2"></div>
-
-
 
 
     <script src="mouse.js"></script>

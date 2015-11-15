@@ -12,11 +12,12 @@ if ($conn->connect_error) {
 }
 
 $user = $_POST['User'];
+$email = $_POST['Email'];
 $image = $_POST['Image'];
 $rect = $_POST['Rect'];
 
   //$sql = "INSERT INTO retangulos (Image, Rect) VALUES ('6', 'testando')";
-  $sql = "INSERT INTO retangulos (User, ImageName, Rect) VALUES ('".$user."', '".$image."', '".$rect."')";
+  $sql = "INSERT INTO retangulos (User, Email, ImageName, Rect) VALUES ('".$user."', '".$email."', '".$image."', '".$rect."')";
 
 
 if ($conn->query($sql) === TRUE) {

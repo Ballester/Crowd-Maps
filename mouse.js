@@ -35,8 +35,17 @@ function changeImage(canvas) {
 
 }
 
-function sendToDB(user, image, retangulos) {
-    var formData = {User:String(user),Image:image,Rect:String(retangulos)};
+function ValidaUserEmail(nome, email) {
+  if (nome == "" || email == "") {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+function sendToDB(user, email, image, retangulos) {
+    var formData = {User:String(user),Email:String(email),Image:image,Rect:String(retangulos)};
     console.log(formData);
     console.log("Enviando ao banco de dados...");
     $.ajax({
@@ -133,6 +142,15 @@ var el_list = [];
 initDraw(document.getElementById('idCanvas'), el_list);
 
 document.getElementById("submit").onclick = function(){
+  var nome = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+  var valida = ValidaUserEmail(nome, email);
+
+  if (valida) {
+    document.getElementById("error").style.display = null;
+  }
+  else {
+    document.getElementById("error").style.display = "none";
     console.log(el_list);
     //console.log(canvas);
 
@@ -148,9 +166,10 @@ document.getElementById("submit").onclick = function(){
     //Creating the lat_lon
     //data_lat_lon = "(" + String(lat_lon[0]) + ", " + String(lat_lon[1]) + ")";
     name = document.getElementById("name").value;
+    email = document.getElementById("email").value;
     im_name = document.getElementById("im_name").value;
 
-    sendToDB(name, im_name, data);
+    sendToDB(name, email, im_name, data);
     //download(num + '.txt', data);
 
     //Remove all elements
@@ -161,23 +180,35 @@ document.getElementById("submit").onclick = function(){
     console.log("Todos retangulos removidos.");
 
     changeImage(canvas);
+  }
 }
 document.getElementById("submit-empty").onclick = function() {
-  name = document.getElementById("name").value;
-  im_name = document.getElementById("im_name").value;
+  var nome = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+  var valida = ValidaUserEmail(nome, email);
 
-  //Send with no data
-  console.log("Enviar sem retangulos.");
-  sendToDB(name, im_name, "");
-
-  //Remove all elements
-  while (el_list.length > 0) {
-      el_list[0].parentNode.removeChild(el_list[el_list.length-1])
-      el_list.pop()
+  if (valida) {
+    document.getElementById("error").style.display = null;
   }
-  console.log("Todos retangulos removidos.");
+  else {
+    document.getElementById("error").style.display = "none";
+    name = document.getElementById("name").value;
+    email = document.getElementById("email").value;
+    im_name = document.getElementById("im_name").value;
 
-  changeImage(canvas);
+    //Send with no data
+    console.log("Enviar sem retangulos.");
+    sendToDB(name, email, im_name, "");
+
+    //Remove all elements
+    while (el_list.length > 0) {
+        el_list[0].parentNode.removeChild(el_list[el_list.length-1])
+        el_list.pop()
+    }
+    console.log("Todos retangulos removidos.");
+
+    changeImage(canvas);
+  }
 
 }
 document.getElementById("skip").onclick = function() {
