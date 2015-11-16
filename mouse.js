@@ -232,3 +232,21 @@ document.getElementById("undo").onclick = function(){
 
     }
 }
+
+document.getElementById("refresh").onclick = function() {
+  var data = {Data: "aux"};
+  $.ajax({
+      url : "changeimage.php",
+      type : "POST",
+      data : data,
+      success: function (result)
+      {
+         console.log(result)
+      },
+      error : function ()
+      {
+         console.log("Erro no ranking.");
+      },
+  });
+
+}
