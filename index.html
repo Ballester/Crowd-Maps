@@ -2,8 +2,9 @@
 <html>
 <head>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
@@ -24,6 +25,16 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown active">
+						<a class="dropdown-toggle" href="#" data-toggle="dropdown">Cadastrar<strong class="caret"></strong></a>
+						<div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+
+							<input style="margin-bottom: 15px;" type="text" placeholder="Usuário" id="cad_nome">
+							<input style="margin-bottom: 15px;" type="password" placeholder="Email" id="cad_email">
+							<input class="btn btn-primary btn-block" style="margin-bottom:5%;" type="submit" id="cad_enviar" value="Enviar">
+
+						</div>
+					</li>
             <li>
               <a href=#idCanvas>Atividade</a>
             </li>
@@ -173,6 +184,7 @@
       <h1>Ranking</h1>
     </div>
 
+    <!-- Ranking -->
     <div class="row">
       <div class="col-md-2">
       </div>
@@ -219,6 +231,7 @@
     </div>
 
     <script src="mouse.js"></script>
+    <script src="cadastro.js"></script>
 
     <text id="im_name"></text>
 
