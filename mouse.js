@@ -11,6 +11,43 @@ function download(filename, text) {
     document.body.removeChild(element);
 }
 
+function refresh() {
+  var data = {Data: "aux"};
+  $.ajax({
+      url : "ranking.php",
+      type : "POST",
+      data : data,
+      success: function (result)
+      {
+        var i=1;
+        result = JSON.parse(result);
+
+        for (var key in result) {
+         if (result.hasOwnProperty(key) && i<11) {
+           //  console.log("r" + String(i))
+           id1 = "r" + String(i);
+           id2 = "r" + String(i) + "b";
+           document.getElementById(id1).innerHTML = key + '<span id="' + id2 + '" class="badge">100</span>'
+           document.getElementById(id2).innerHTML = result[key];
+          //  console.log(document.getElementById(id2));
+          //  document.getElementById("r" + String(i) + "b").innerHTML = result[key];
+           i += 1;
+         }
+        }
+        for (i; i<11; i++) {
+          id1 = "r" + String(i);
+          id2 = "r" + String(i) + "b";
+          document.getElementById(id1).innerHTML = "Vazio" + '<span id="' + id2 + '" class="badge">100</span>';
+          document.getElementById(id2).innerHTML = 0;
+        }
+      },
+      error : function ()
+      {
+         console.log("Erro no ranking .");
+      },
+  });
+}
+
 function getRandomArbitrary(min, max) {
     return( Math.random() * (max - min) + min);
 }
@@ -138,6 +175,8 @@ var canvas = document.getElementById('idCanvas');
 changeImage(canvas);
 console.log(canvas);
 
+refresh();
+
 var el_list = [];
 initDraw(document.getElementById('idCanvas'), el_list);
 
@@ -191,15 +230,63 @@ document.getElementById("submit-empty").onclick = function() {
     document.getElementById("error").style.display = null;
   }
   else {
-    document.getElementById("error").style.display = "none";
-    name = document.getElementById("name").value;
-    email = document.getElementById("email").value;
-    im_name = document.getElementById("im_name").value;
+    if (el_list.length > 0) {
+      if (confirm("Você possui retângulos, deseja deletar e pular a imagem?")) {
+        document.getElementById("error").style.display = "none";
+        name = document.getElementById("name").value;
+        email = document.getElementById("email").value;
+        im_name = document.getElementById("im_name").value;
 
-    //Send with no data
-    console.log("Enviar sem retangulos.");
-    sendToDB(name, email, im_name, "");
+        //Send with no data
+        console.log("Enviar sem retangulos.");
+        sendToDB(name, email, im_name, "");
 
+        //Remove all elements
+        while (el_list.length > 0) {
+            el_list[0].parentNode.removeChild(el_list[el_list.length-1])
+            el_list.pop()
+        }
+        console.log("Todos retangulos removidos.");
+
+        changeImage(canvas);
+      }
+    }
+    else {
+      document.getElementById("error").style.display = "none";
+      name = document.getElementById("name").value;
+      email = document.getElementById("email").value;
+      im_name = document.getElementById("im_name").value;
+
+      //Send with no data
+      console.log("Enviar sem retangulos.");
+      sendToDB(name, email, im_name, "");
+
+      //Remove all elements
+      while (el_list.length > 0) {
+          el_list[0].parentNode.removeChild(el_list[el_list.length-1])
+          el_list.pop()
+      }
+      console.log("Todos retangulos removidos.");
+
+      changeImage(canvas);
+    }
+  }
+
+}
+document.getElementById("skip").onclick = function() {
+  if (el_list.length > 0) {
+    if (confirm("Você possui retângulos, deseja deletar e pular a imagem?")) {
+      //Remove all elements
+      while (el_list.length > 0) {
+          el_list[0].parentNode.removeChild(el_list[el_list.length-1])
+          el_list.pop()
+      }
+      console.log("Todos retangulos removidos.");
+
+      changeImage(canvas);
+    }
+  }
+  else {
     //Remove all elements
     while (el_list.length > 0) {
         el_list[0].parentNode.removeChild(el_list[el_list.length-1])
@@ -209,17 +296,6 @@ document.getElementById("submit-empty").onclick = function() {
 
     changeImage(canvas);
   }
-
-}
-document.getElementById("skip").onclick = function() {
-    //Remove all elements
-    while (el_list.length > 0) {
-        el_list[0].parentNode.removeChild(el_list[el_list.length-1])
-        el_list.pop()
-    }
-    console.log("Todos retangulos removidos.");
-
-    changeImage(canvas);
 }
 document.getElementById("undo").onclick = function(){
     if (el_list.length > 0) {
@@ -234,19 +310,5 @@ document.getElementById("undo").onclick = function(){
 }
 
 document.getElementById("refresh").onclick = function() {
-  var data = {Data: "aux"};
-  $.ajax({
-      url : "changeimage.php",
-      type : "POST",
-      data : data,
-      success: function (result)
-      {
-         console.log(result)
-      },
-      error : function ()
-      {
-         console.log("Erro no ranking.");
-      },
-  });
-
+  refresh();
 }

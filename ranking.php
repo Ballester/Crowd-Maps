@@ -11,15 +11,30 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-function return_ranking()
-{
+$sql = "SELECT User FROM retangulos WHERE Rect!=''";
+$result = $conn->query($sql);
 
-  $sql = "SELECT User FROM retangulos";
+if (mysqli_num_rows($result) > 0) {
+    $vistos = array();
+    $dict = array();
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        // echo "id: " . $row["User"].;
+        if (in_array($row["User"], $vistos)) {
+          $dict[$row["User"]] += 1;
+        }
+        else {
+          $vistos[] = $row["User"];
+          $dict[$row["User"]] = 1;
+        }
+    }
 
-  return $sql;
+    array_multisort($dict, SORT_DESC);
+    echo json_encode($dict);
+} else {
+    echo "0 results";
 }
 
-echo return_ranking()
 $conn->close();
 
 ?>
