@@ -9,8 +9,8 @@ $email = $_POST['Email'];
 
 $hash = hash("md5", $user . $email);
 
-$to      = 'nobody@example.com';
-$subject = 'the subject';
+$to      = $email;
+$subject = 'Conta criada nos serviços ufpel';
 $message = 'Obrigado por se cadastrar.' . "\n" . "Para continuar, acesse o link: http://ufpel.servicos.ws/?access=" . $hash . "\n";
 $headers = 'From: ufpel@servicos.com' . "\r\n" .
     'Reply-To: pedballester@gmail.com' . "\r\n" .
