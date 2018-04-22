@@ -1,2 +1,2 @@
-# UfpelServicos
-Site para criacao de datasets em conjunto
+# Crowd Maps
+### Website and utils for collaborative annotation of google maps images
